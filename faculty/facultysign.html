@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>faculty signup page</title>
+    <style>
+        body {
+            background-color: rgb(20, 235, 250);
+        }
+        CENTER {
+            border: 2px solid;
+            border-radius: 20px;
+            box-shadow: 10px 10px rgb(104, 108, 108);
+            background-color: white;
+            width: 50%;
+            margin-left: 250px;
+            padding: 20px 20px;
+
+        }
+     
+        input[type=text], [type=email], [type=password], select {
+            width: 80%;
+            display: inline-block;
+            padding: 10px 10px;
+            border-radius: 10px;
+        }
+        button {
+            border: 1px solid;
+            border-radius: 10px;
+            padding: 10px 10px;
+            background-color: rgb(12, 231, 176);
+            font-weight: bold; 
+            margin-right: 10px;
+            width: 50%;
+        }
+        button:hover {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>FACULTY REGISTER</h1>
+    <form action="facultysign.php" method="post">
+        <input type="text" name="facultyname" placeholder="faculty name" required>
+        <br><br> <br>
+        <input type="email" name="facultyemail" placeholder="faculty email" required> <br> <br> <br>
+        <input type="text" name="department" placeholder="department" required> <br><br> <br>
+       
+        <select id="working" name="working" required>
+            <option value=" ">working as</option>
+            <option value="HOD">HOD</option>
+            <option value="TUTOR">TUTOR</option>
+            <option value="OTHERS">OTHERS</option>
+        </select>
+        <br><br> 
+        <label id="change" for="year">Select year:</label>
+        <br><br>
+        <input type="radio" name="year" id="year-1" value="1st year" required>
+        <label for="year-1">1st year</label>
+        
+        <input type="radio" name="year" id="year2" value="2nd year" required>
+        <label for="year-2">2nd year</label>
+        <input type="radio" name="year" id="year3" value="3rd year" required>
+        <label for="year-3">3rd year</label> <br><br> <br>
+        <input type="password" name="password" placeholder="password" required> <br><br> <br>
+        <button type="submit" name="submit">SUBMIT</button>
+    </form>
+</center>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Faculty Attendance Submission</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group button {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-group button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Faculty Attendance Submission</h2>
+        <form id="attendanceForm" method="post" action="attendancerecord.php">
+            <div class="form-group">
+                <label for="registerNumber">Register Number:</label>
+                <input type="text" id="registerNumber" name="registerNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="studentName">Student Name:</label>
+                <input type="text" id="studentName" name="studentName" required>
+            </div>
+            <div class="form-group">
+                <label for="course">Course:</label>
+                <input type="text" id="course" name="course" required>
+            </div>
+            <div class="form-group">
+                <label for="aprilPercentage">April Attendance Percentage:</label>
+                <input type="number" id="aprilPercentage" name="aprilPercentage" min="0" max="100" required>
+            </div>
+            <div class="form-group">
+                <label for="mayPercentage">May Attendance Percentage:</label>
+                <input type="number" id="mayPercentage" name="mayPercentage" min="0" max="100" required>
+            </div>
+            <div class="form-group">
+                <label for="junePercentage">June Attendance Percentage:</label>
+                <input type="number" id="junePercentage" name="junePercentage" min="0" max="100" required>
+            </div>
+            <div class="form-group">
+                <label for="totalPercentage">Total Attendance Percentage:</label>
+                <input type="number" id="totalPercentage" name="totalPercentage" readonly>
+            </div>
+            <div class="form-group">
+                <label for="attendanceMarks">Attendance Marks:</label>
+                <input type="number" id="attendanceMarks" name="attendanceMarks" readonly>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        document.getElementById('attendanceForm').addEventListener('input', function () {
+            const april = parseFloat(document.getElementById('aprilPercentage').value) || 0;
+            const may = parseFloat(document.getElementById('mayPercentage').value) || 0;
+            const june = parseFloat(document.getElementById('junePercentage').value) || 0;
+            const totalPercentage = (april + may + june) / 3;
+            const attendanceMarks = (totalPercentage / 100) * 5; // Assuming max marks are 5
+            document.getElementById('totalPercentage').value = totalPercentage.toFixed(2);
+            document.getElementById('attendanceMarks').value = attendanceMarks.toFixed(2);
+        });
+    </script>
+</body>
+</html>

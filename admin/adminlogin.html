@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    body{
+    background-image:linear-gradient(pink,rgb(136, 186, 233));
+  background-repeat: no-repeat;
+  background-size: 1600px 1000px;
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+font-size: 20px;
+
+
+}
+form{
+    width: 25rem;
+    height: 30rem;
+    background: rgba(255,255,255,0.06);
+    box-shadow: 0 8px 32px 0 rgba(31,38,135,.37);
+    border-radius: 20px;
+    padding: 20px 20px;
+    border: 1px solid rgba(255,255,255,.3);
+   
+   margin-top: 30px;
+}
+h1{
+    text-shadow: 2px 2px 4px rgba(0,0,0,.2);
+ 
+}
+input[type="text"],[type="password"]{
+  
+  display: block;
+ 
+  border: 1px solid transparent;
+  border-radius: 20px;
+  padding: 10px 40px;
+}
+img{
+   border: 1px solid  transparent;
+   border-radius: 100%;
+
+
+}
+button{
+    border: 1px transparent solid;
+border-radius: 30px;
+padding: 10px 20px;
+background-color: white;
+font-weight: bold; 
+margin-right: 10px;
+width: 40%;
+
+
+}
+button:hover{
+    background-color: pink;
+   
+}
+  </style>
+</head>
+
+<body>
+  <center>
+    
+  <form id="loginForm">
+    <h1>ADMIN LOGIN</h1>
+   <center> <img src="adminprofile.jpg" width="40%" height="40%"></center>
+   <br>
+    <input type="text" name="username" id="username" placeholder="Username" required>
+    <br>
+    <input type="password" name="password" id="password" placeholder="Password" required> <br>
+    <button type="submit">Login</button>
+  </form>
+</center>
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form from submitting
+
+      let a = document.getElementById("username").value;
+      let b = document.getElementById("password").value;
+
+      if ((a === "admin1" && b === "admin567") || (a === "admin2" && b === "admin890")) {
+        alert("Your ID and password are accepted");
+        window.location="adminfunction.html";
+      } else {
+        alert("Invalid ID or password");
+        window.location="index.php";
+
+      }
+    });
+  </script>
+</body>
+</html>
